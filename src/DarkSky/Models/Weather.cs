@@ -14,7 +14,9 @@ namespace DarkSky.Models
     {
 
         public string Summary { get; set; }
-        public string Temperature { get; set; }
+        //public string TemperatureMax { get; set; }
+        
+        
 
         public Weather()
         {
@@ -33,11 +35,16 @@ namespace DarkSky.Models
             }).Wait();
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            var daily = JsonConvert.DeserializeObject<Weather>(jsonResponse["daily"].ToString());
-            
-            Console.WriteLine("Summary: {0}", daily.Summary);
-            //Console.WriteLine(": {0}", message.From);
-            //Console.WriteLine("Body: {0}", message.Body);
+            JObject daily = JsonConvert.DeserializeObject<JObject>(jsonResponse["daily"].ToString());
+            JObject[] data = JsonConvert.DeserializeObject<JObject[]>(daily["data"].ToString());
+            JObject firstElement = JsonConvert.DeserializeObject<JObject>(data[0].ToString());
+
+
+            //Weather data = JsonConvert.DeserializeObject<Weather>(daily["data"].ToString());
+
+
+            Console.WriteLine("Summary: {0} ", firstElement["temperatureMax"]);
+            //Console.WriteLine("Body: {0}", message.Body); 
             //Console.WriteLine("Status: {0}", message.Status);
             
             Console.ReadLine();
