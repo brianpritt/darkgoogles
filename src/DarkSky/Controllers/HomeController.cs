@@ -18,6 +18,7 @@ namespace DarkSky.Controllers
         {
             string defaultLocation = "Portland";
             ViewBag.Place = defaultLocation;
+            ViewBag.Key = EnvironmentVariables.MapViewKey;
             return View();
         }
         [HttpPost]
@@ -28,6 +29,7 @@ namespace DarkSky.Controllers
             newWeather.GetTemp(latlng);
             newWeather.GetSummary(latlng);
             ViewBag.Place = location;
+            ViewBag.Key = EnvironmentVariables.MapViewKey;
             return View(newWeather);
         }
     }
