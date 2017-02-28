@@ -7,8 +7,8 @@
 -debug:full
 -nostdlib
 -nologo
-"c:\Users\epicodus\documents\visual studio 2015\Projects\DarkSky\src\DarkSky\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"c:\Users\epicodus\documents\visual studio 2015\Projects\DarkSky\src\DarkSky\bin\Debug\netcoreapp1.0\DarkSky.dll"
+"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\bin\Debug\netcoreapp1.0\DarkSky.dll"
 -r:"C:\Users\epicodus\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.1\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
 -r:"C:\Users\epicodus\.nuget\packages\Microsoft.AspNetCore.Authorization\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Authorization.dll"
 -r:"C:\Users\epicodus\.nuget\packages\Microsoft.AspNetCore.Cors\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Cors.dll"
@@ -168,8 +168,9 @@
 -r:"C:\Users\epicodus\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\epicodus\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
 -r:"C:\Users\epicodus\.nuget\packages\System.Xml.XmlSerializer\4.0.11\ref\netstandard1.3\System.Xml.XmlSerializer.dll"
--resource:"c:\Users\epicodus\documents\visual studio 2015\Projects\DarkSky\src\DarkSky\obj\Debug\netcoreapp1.0\DarkSkydotnet-compile.deps.json",DarkSky.deps.json
-"c:\Users\epicodus\documents\visual studio 2015\Projects\DarkSky\src\DarkSky\Program.cs"
-"c:\Users\epicodus\documents\visual studio 2015\Projects\DarkSky\src\DarkSky\Startup.cs"
-"c:\Users\epicodus\documents\visual studio 2015\Projects\DarkSky\src\DarkSky\Controllers\HomeController.cs"
-"c:\Users\epicodus\documents\visual studio 2015\Projects\DarkSky\src\DarkSky\Models\Weather.cs"
+-resource:"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\obj\Debug\netcoreapp1.0\DarkSkydotnet-compile.deps.json",DarkSky.deps.json
+"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\EnvironmentVariables.cs"
+"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\Program.cs"
+"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\Startup.cs"
+"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\Controllers\HomeController.cs"
+"C:\Users\epicodus\Desktop\darksky-api\src\DarkSky\Models\Weather.cs"

@@ -6,3 +6,13 @@
 @Html.DisplayFor(m => Model.Temp)
 <br />
 @Html.DisplayFor(m => Model.Summary)
+<form method="post" asp-action="GetLocation" asp-controller="Home">
+    <input type="text" name="location" />
+    <button type="submit">Get Weather</button>
+</form>
+
+<iframe width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCH_xrWWx2_6oFgXenVuP_sTLMOTUC8BD4&q=@ViewBag.Place' 
+     allowfullscreen></iframe>

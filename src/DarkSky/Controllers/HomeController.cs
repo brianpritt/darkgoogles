@@ -13,11 +13,23 @@ namespace DarkSky.Controllers
     {
         Weather newWeather = new Weather();
         // GET: /<controller>/
+        
         public IActionResult Index()
         {
-            newWeather.GetTemp();
-            newWeather.GetSummary();
+            string defaultLocation = "Portland";
+            ViewBag.Place = defaultLocation;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(string location)
+        {
+           
+            string latlng = Weather.GetLocation(location);
+            newWeather.GetTemp(latlng);
+            newWeather.GetSummary(latlng);
+            ViewBag.Place = location;
             return View(newWeather);
         }
     }
+
 }
