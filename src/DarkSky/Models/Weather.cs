@@ -4,6 +4,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,20 +14,19 @@ namespace DarkSky.Models
     public class Weather
     {
 
+        public string Temp { get; set; }
         public string Summary { get; set; }
-        //public string TemperatureMax { get; set; }
         
         
-
         public Weather()
         {
-
+        
         }
 
-        public void GetWeather()
+        public void GetTemp()
         {
             var client = new RestClient("https://api.darksky.net/");
-            var request = new RestRequest("forecast/90da12a86306b1ec09bd65356b7e0707/37.8267,-122.4233", Method.GET);
+            var request = new RestRequest("forecast/90da12a86306b1ec09bd65356b7e0707/45.52,-122.65", Method.GET);
             var response = new RestResponse();
 
             Task.Run(async () =>
@@ -39,16 +39,27 @@ namespace DarkSky.Models
             JObject[] data = JsonConvert.DeserializeObject<JObject[]>(daily["data"].ToString());
             JObject firstElement = JsonConvert.DeserializeObject<JObject>(data[0].ToString());
 
+            Temp = firstElement["temperatureMax"].ToString();
+        }
 
-            //Weather data = JsonConvert.DeserializeObject<Weather>(daily["data"].ToString());
+        public void GetSummary()
+        {
+            var client = new RestClient("https://api.darksky.net/");
+            var request = new RestRequest("forecast/90da12a86306b1ec09bd65356b7e0707/45.52,-122.65", Method.GET);
+            var response = new RestResponse();
 
+            Task.Run(async () =>
+            {
+                response = await GetResponseContentAsync(client, request) as RestResponse;
+            }).Wait();
 
-            Console.WriteLine("Summary: {0} ", firstElement["temperatureMax"]);
-            //Console.WriteLine("Body: {0}", message.Body); 
-            //Console.WriteLine("Status: {0}", message.Status);
-            
-            Console.ReadLine();
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+            JObject daily = JsonConvert.DeserializeObject<JObject>(jsonResponse["daily"].ToString());
+            JObject[] data = JsonConvert.DeserializeObject<JObject[]>(daily["data"].ToString());
+            JObject firstElement = JsonConvert.DeserializeObject<JObject>(data[0].ToString());
 
+            Summary = daily["summary"].ToString();
+         
         }
 
         public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)

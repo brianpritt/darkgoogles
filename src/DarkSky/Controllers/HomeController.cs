@@ -15,8 +15,9 @@ namespace DarkSky.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            newWeather.GetWeather();
-            return View();
+            newWeather.GetTemp();
+            newWeather.GetSummary();
+            return View(newWeather);
         }
     }
 }
