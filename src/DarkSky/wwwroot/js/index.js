@@ -28,10 +28,24 @@ var initMap = function (latitude, longitude) {
         zoom: 8,
         center: center,
     });
-    map.SetMapTypeId('hybrid');
+    
     var marker = new google.maps.Marker({
-        position: center,
-        
+        position: center,       
         map: map
     });
+    function addMarker(feature)
+    {
+        var marker = new google.maps.Marker({
+            position: feature.position,
+            map: map
+        })
+    }
+    var features = [
+        {
+            position: new google.maps.LatLng(45, -122)
+        }
+    ]
+    for (var i = 0, feature; feature = features[i]; i++) {
+        addMarker(feature);
+    }
 }
