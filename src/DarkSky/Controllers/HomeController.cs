@@ -22,15 +22,20 @@ namespace DarkSky.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string location)
+        public IActionResult DrawMap(string mapLocation)
         {
-           
-            string latlng = Weather.GetLocation(location);
+            Console.WriteLine("location: " + mapLocation);
+            string latlng = Weather.GetLocation(mapLocation);
             newWeather.GetTemp(latlng);
             newWeather.GetSummary(latlng);
-            ViewBag.Place = location;
+            ViewBag.Place = mapLocation;
             ViewBag.Key = EnvironmentVariables.MapViewKey;
-            return View(newWeather);
+
+            return Json(latlng);
+        }
+        public IActionResult MapTest()
+        {
+            return View();
         }
     }
 

@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var portland = {lat: 45.5231, lng: -122.6765};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: portland
+        });
+        var marker = new google.maps.Marker({
+          position: portland,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARhB170H1_IihPz-E4A-7fIJ8Hpatt5gg&callback=initMap">
+    </script>
+</body>
+</html>

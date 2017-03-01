@@ -83,7 +83,7 @@ namespace DarkSky.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            //Console.WriteLine(jsonResponse);
+            
             JObject[] latLong = JsonConvert.DeserializeObject<JObject[]>(jsonResponse["results"].ToString());
             JObject firstPosition = JsonConvert.DeserializeObject<JObject>(latLong[0].ToString());
             JObject geometry = JsonConvert.DeserializeObject<JObject>(firstPosition["geometry"].ToString());

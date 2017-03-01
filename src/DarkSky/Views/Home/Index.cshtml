@@ -1,35 +1,29 @@
 ﻿@model DarkSky.Models.Weather
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARhB170H1_IihPz-E4A-7fIJ8Hpatt5gg&callback=initMap">
+</script>
 <script src="~/js/index.js"></script>
 <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-<h2>Temperature</h2>
+    #map {
+        height: 400px;
+        width: 600px;
+    }
+</style>
+<body>
+    <h2>Temperature</h2>
 
-<label>Here's the Temperature</label>
-@Html.DisplayFor(m => Model.Temp)
-<br />
-@Html.DisplayFor(m => Model.Summary)
-<form method="post" asp-action="GetLocation" asp-controller="Home">
-    <input type="text" name="location" />
-    <button type="submit">Get Weather</button>
-</form>
+    <label>Here's the Temperature</label>
+    @Html.DisplayFor(m => Model.Temp)
+    <br />
+    @Html.DisplayFor(m => Model.Summary)
+    <form id="locationSubmit" method="post">
+        <input type="text" name="mapLocation" id="mapLocation" />
+        <button type="submit">Get Weather</button>
+    </form>
 
-<iframe width="600"
-        height="450"
-        frameborder="0" style="border:0"
-        src='https://www.google.com/maps/embed/v1/place?key=@ViewBag.Key&q=@ViewBag.Place&maptype=satellite' 
-     allowfullscreen></iframe>
-<div id="map">
+ 
+    <div id="map"></div>
 
-</div>
+</body>
